@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1, 
+  "version": 1,
   "newProjectRoot": "projects",
   "projects": {
     "dsc-front": {
@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "dsc-front"
+    }
+  },
+  "defaultProject": "dsc-front",
+  "cli": {
+    "analytics": "9f659b31-d069-463a-bd8c-bf0eab15f0d6"
+  }
 }
