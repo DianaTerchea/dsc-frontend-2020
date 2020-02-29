@@ -6,7 +6,16 @@ import { CourseTimeComponent } from './components/course-time/course-time.compon
 import { CourseContentComponent } from './components/course-content/course-content.component';
 
 @NgModule({
-  declarations: [TimeTableComponent, WeekDaysComponent, CourseComponent, CourseTimeComponent, CourseContentComponent],
+  declarations: [
+    TimeTableComponent,
+    WeekDaysComponent,
+    CourseComponent,
+    CourseTimeComponent,
+    CourseContentComponent
+  ],
+  exports: [
+    TimeTableComponent
+  ],
   imports: [],
 })
 export class TimeTableModule { }

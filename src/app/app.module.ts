@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SessionModule } from './session/session.module';
 import { TimeTableModule } from './timetable/timetable.module';
-import { SharedModule } from './shared/shared.module';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [
@@ -14,9 +14,9 @@ import { SharedModule } from './shared/shared.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    CoreModule,
     SessionModule,
     TimeTableModule,
-    SharedModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
