@@ -1,0 +1,23 @@
+.header-container { 
+    width: 100%;
+    font-family: Helvetica;
+    font-size: 21px;
+    display: flex;
+    align-items: center; 
+    justify-content: space-between;
+    height: auto;
+    margin-top: 15px;
+}
+
+.weekday {
+    text-align: center;
+}
+
+.back-btn {
+    color: #15D0A1;
+    padding: 0 15px;
+}
+
+.notification {
+    padding: 0 15px;
+}
