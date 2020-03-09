@@ -18,7 +18,8 @@ import {
   imports: [
     ReactiveFormsModule,
     FormsModule],
-  exports: [LoginComponent
+  exports: [
+    LoginComponent
   ]
 })
 export class SessionModule {
