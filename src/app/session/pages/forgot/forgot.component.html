@@ -1,1 +1,16 @@
-<p>forgot works!</p>
+<form [formGroup]="mainForm">
+
+    <div class="emailInput">
+        <label for="">Email</label>
+        <br>
+        <input type="email" formControlName="email" required placeholder="Enter Email">
+        <br>
+        <br>
+        <label for="">Confirm Email</label>
+        <br>
+        <input type="email" formControlName="confirmEmail" required placeholder="Confirm Email">
+
+        <div class="Warn" *ngIf="confirmEmailField?.errors?.fieldMatch">The email addresses do not match</div>
+    </div>
+    <button type="submit" [disabled]="mainForm.invalid">Submit</button>
+</form>

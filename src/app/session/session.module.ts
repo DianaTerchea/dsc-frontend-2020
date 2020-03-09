@@ -5,6 +5,8 @@ import {
   ForgotComponent,
   LogoutComponent
 } from './pages';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -13,7 +15,14 @@ import {
     ForgotComponent,
     LogoutComponent
   ],
-  imports: [],
+  imports: [
+    ReactiveFormsModule,
+    FormsModule,
+    CommonModule
+  ],
+  exports: [
+    ForgotComponent
+  ]
 })
 export class SessionModule {
 
