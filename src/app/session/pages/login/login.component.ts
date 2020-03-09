@@ -9,6 +9,8 @@ import { FormBuilder, Validators } from '@angular/forms';
 export class LoginComponent implements OnInit {
 
   constructor(private fb:FormBuilder) { }
+  
+  ngOnInit() {}
 
   onSubmit() {
     console.warn(this.profileForm.value);
