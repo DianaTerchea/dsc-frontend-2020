@@ -12,3 +12,10 @@ html {
 .light-text {
   color: #B9B9B9;
 }
+
+.container {
+  &-fluid {
+    padding: 0;
+    margin: 0;
+  }
+}
