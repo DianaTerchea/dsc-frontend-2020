@@ -10,9 +10,6 @@ export class LoginComponent implements OnInit {
 
   constructor(private fb:FormBuilder) { }
 
-  ngOnInit(): void {
-  }
-
   onSubmit() {
     console.warn(this.profileForm.value);
   }
