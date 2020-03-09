@@ -4,10 +4,14 @@ form {
     align-items: center;
     flex-direction: column;
     margin: 2em;
+  
     label{
         text-align: center;  
+      
         input {
             display :flex;
         } 
+      
     }
+  
 }
