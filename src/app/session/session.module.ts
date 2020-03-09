@@ -13,11 +13,11 @@ import {
     RegisterComponent,
     ForgotComponent,
     LogoutComponent,
-    
   ],
   imports: [
     ReactiveFormsModule,
-    FormsModule],
+    FormsModule
+  ],
   exports: [
     LoginComponent
   ]
