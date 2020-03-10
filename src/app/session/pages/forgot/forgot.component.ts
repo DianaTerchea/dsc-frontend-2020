@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, AbstractControl } from '@angular/forms';
+import { FormGroup, FormBuilder, AbstractControl, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-forgot',
@@ -7,13 +7,11 @@ import { FormGroup, FormBuilder, AbstractControl } from '@angular/forms';
   styleUrls: ['./forgot.component.scss']
 })
 export class ForgotComponent implements OnInit {
-
-  mainForm: FormGroup;
+  public mainForm: FormGroup;
 
   constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
-
     this.mainForm = this.fb.group({
       email: [''],
       confirmEmail: ['', [this.matchValidator.bind(this)]]
@@ -23,7 +21,7 @@ export class ForgotComponent implements OnInit {
   matchValidator(control: AbstractControl): { [key: string]: boolean } | null {
     const fromValue = control.value;
     if (this.mainForm) {
-      const toValue = (<FormGroup>this.mainForm.get('email')).value;
+      const toValue = (this.mainForm.get('email') as FormControl).value;
       if (fromValue && toValue && fromValue !== toValue) {
         return { 'fieldMatch': true };
       }
@@ -33,5 +31,9 @@ export class ForgotComponent implements OnInit {
 
   get confirmEmailField() {
     return this.mainForm.get('confirmEmail');
+  }
+
+  onSubmit() {
+    console.warn(this.mainForm.value);
   }
 }
