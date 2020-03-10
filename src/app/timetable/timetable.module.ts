@@ -4,6 +4,7 @@ import { WeekDaysComponent } from './components/week-days/week-days.component';
 import { CourseComponent } from './components/course/course.component';
 import { CourseTimeComponent } from './components/course-time/course-time.component';
 import { CourseContentComponent } from './components/course-content/course-content.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,8 @@ import { CourseContentComponent } from './components/course-content/course-conte
   exports: [
     TimeTableComponent
   ],
-  imports: [],
+  imports: [
+    CommonModule
+  ],
 })
 export class TimeTableModule { }
