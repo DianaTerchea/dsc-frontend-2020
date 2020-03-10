@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 import {
   LoginComponent,
   RegisterComponent,
@@ -11,9 +12,15 @@ import {
     LoginComponent,
     RegisterComponent,
     ForgotComponent,
-    LogoutComponent
+    LogoutComponent,
   ],
-  imports: [],
+  imports: [
+    ReactiveFormsModule,
+    FormsModule
+  ],
+  exports: [
+    LoginComponent
+  ]
 })
 export class SessionModule {
 
