@@ -1,19 +1,18 @@
-import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
-import { Subject } from "rxjs";
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Subject } from 'rxjs';
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root'
 })
 export class TimeTableService {
-  private messageSrc = new Subject<string>();
-  message = this.messageSrc.asObservable();
+  public message$ = new Subject<string>();
   constructor(private http: HttpClient) {}
   sendMessage(msg: string) {
-    this.messageSrc.next(msg);
+    this.message$.next(msg);
   }
 
   public getTimeTableData() {
-    return this.http.get("https://api.openbrewerydb.org/breweries");
+    return this.http.get('https://api.openbrewerydb.org/breweries');
   }
 }

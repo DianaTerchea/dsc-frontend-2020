@@ -14,11 +14,7 @@ import { CommonModule } from '@angular/common';
     CourseTimeComponent,
     CourseContentComponent
   ],
-  exports: [
-    TimeTableComponent
-  ],
-  imports: [
-    CommonModule
-  ],
+  exports: [TimeTableComponent],
+  imports: [CommonModule]
 })
-export class TimeTableModule { }
+export class TimeTableModule {}
