@@ -1,11 +1,12 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { TimeTableComponent } from './timetable/components';
+import { NgModule } from "@angular/core";
+import { Routes, RouterModule } from "@angular/router";
+import { TimeTableComponent } from "./timetable/components";
+import { RegisterComponent } from "./session/pages";
 
 const routes: Routes = [
   {
-    path: '',
-    component: TimeTableComponent
+    path: "",
+    component: RegisterComponent
   }
 ];
 
@@ -13,4 +14,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
