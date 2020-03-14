@@ -13,7 +13,7 @@ import { CommonModule } from '@angular/common';
     LoginComponent,
     RegisterComponent,
     ForgotComponent,
-    LogoutComponent
+    LogoutComponent,
   ],
   imports: [
     ReactiveFormsModule,
@@ -21,7 +21,8 @@ import { CommonModule } from '@angular/common';
     CommonModule
   ],
   exports: [
-    ForgotComponent
+    ForgotComponent,
+    LoginComponent
   ]
 })
 export class SessionModule {
