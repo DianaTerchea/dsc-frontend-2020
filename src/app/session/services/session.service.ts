@@ -34,6 +34,6 @@ export class SessionService {
   }
 
   public logout(): void {
-    // to be implemented
+    localStorage.removeItem('token');
   }
 }
