@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 import {
   LoginComponent,
   RegisterComponent,
   ForgotComponent,
   LogoutComponent
 } from './pages';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -16,9 +17,11 @@ import {
   ],
   imports: [
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    CommonModule
   ],
   exports: [
+    ForgotComponent,
     LoginComponent
   ]
 })
