@@ -1,43 +1,36 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
   Validators,
   AbstractControl
-} from "@angular/forms";
+} from '@angular/forms';
 
 @Component({
-  selector: "app-register",
-  templateUrl: "./register.component.html",
-  styleUrls: ["./register.component.scss"]
+  selector: 'app-register',
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.scss']
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent {
   registerForm: FormGroup;
 
   constructor(private fb: FormBuilder) {
     this.registerForm = this.fb.group(
       {
-        firstName: "",
-        lastName: "",
-        email: ["", [Validators.email, Validators.required]],
-        password: ["", [Validators.minLength(6), Validators.required]],
-        confirmPassword: ""
+        firstName: ['', [Validators.required]],
+        lastName: ['', [Validators.required]],
+        email: ['', [Validators.email, Validators.required]],
+        password: ['', [Validators.minLength(6), Validators.required]],
+        confirmPassword: ''
       },
-      { validator: passwordValidator }
+      { validator: this.passwordValidator.bind(this) }
     );
   }
 
-  ngOnInit(): void {}
-
-  onSubmit() {
-    console.log(this.registerForm.value);
+  passwordValidator(control: AbstractControl) {
+    return control.get('password').value ===
+      control.get('confirmPassword').value
+      ? null
+      : { invalid: true };
   }
-}
-
-function passwordValidator(control: AbstractControl) {
-  console.log(control.get("password").value);
-  console.log(control.get("confirmPassword").value);
-  return control.get("password").value === control.get("confirmPassword").value
-    ? null
-    : { invalid: true };
 }
