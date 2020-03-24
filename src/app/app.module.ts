@@ -8,6 +8,9 @@ import { AppComponent } from './app.component';
 import { SessionModule } from './session/session.module';
 import { TimeTableModule } from './timetable/timetable.module';
 import { CoreModule } from './core/core.module';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 @NgModule({
   declarations: [
@@ -21,6 +24,9 @@ import { CoreModule } from './core/core.module';
     TimeTableModule,
     HttpClientModule,
     ReactiveFormsModule,
+    StoreModule.forRoot({}),
+    EffectsModule.forRoot([]),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: true }),
   ],
   providers: [],
   bootstrap: [AppComponent]
