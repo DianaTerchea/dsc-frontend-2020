@@ -1,11 +1,25 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { TimeTableComponent } from './timetable/components';
+import { RegisterComponent, LoginComponent } from './session/pages';
 
 const routes: Routes = [
   {
     path: '',
-    component: TimeTableComponent
+    children: [
+      {
+        path: '',
+        component: TimeTableComponent
+      },
+      {
+        path: 'register',
+        component: RegisterComponent
+      },
+      {
+        path: 'login',
+        component: LoginComponent
+      }
+    ]
   }
 ];
 
