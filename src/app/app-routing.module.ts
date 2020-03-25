@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { TimeTableComponent } from './timetable/components';
 import { RegisterComponent, LoginComponent } from './session/pages';
+import { 
+  NonauthGuardService as NonAuthGuard 
+} from './session/services/nonauth-guard.service';
 
 const routes: Routes = [
   {
@@ -13,11 +16,13 @@ const routes: Routes = [
       },
       {
         path: 'register',
-        component: RegisterComponent
+        component: RegisterComponent,
+        canActivate: [NonAuthGuard]
       },
       {
         path: 'login',
-        component: LoginComponent
+        component: LoginComponent,
+        canActivate: [NonAuthGuard]
       }
     ]
   }
