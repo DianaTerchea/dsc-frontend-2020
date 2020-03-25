@@ -1,25 +1,36 @@
 .saptamana {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    align-items: center;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  align-items: center;
 }
 
 .buton {
-    background-color: white; /* Green */
-    border: none;
-    color:black;
-    padding: 10px 13px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 10px;
-    border-radius: 12px;
-    cursor: pointer;
+  background-color: white; /* Green */
+  border: none;
+  color: black;
+  padding: 10px 13px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 10px;
+  border-radius: 12px;
+  cursor: pointer;
 }
 
-
 .buton:focus {
-    background-color: #c5e1a5;
-    border: none;
+  background-color: #c5e1a5;
+  border: none;
+}
+
+.picked-day {
+  background-color: #c5e1a5;
+  border: none;
+}
+
+:focus {
+  outline: none;
+}
+::-moz-focus-inner {
+  border: 0;
 }
