@@ -24,8 +24,7 @@ export class SessionService {
   }
 
   public register(payload: IRegisterPayload): Observable<IRegisterResponse> {
-    // to be implemented
-    return null;
+    return this.http.post<IRegisterResponse>(this.url + '/register', payload);
   }
 
   public forgot(payload: IForgotPayload): Observable<any> {
