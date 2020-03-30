@@ -17,7 +17,7 @@ import { sessionReducer } from './store/reducers';
     LoginComponent,
     RegisterComponent,
     ForgotComponent,
-    LogoutComponent,
+    LogoutComponent
   ],
   imports: [
     ReactiveFormsModule,
@@ -34,6 +34,4 @@ import { sessionReducer } from './store/reducers';
     ...sessionEffects
   ]
 })
-export class SessionModule {
-
-}
+export class SessionModule {}
