@@ -1,12 +1,30 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { TimeTableComponent } from './timetable/components';
-import { RegisterComponent } from './session/pages';
+import { RegisterComponent, LoginComponent } from './session/pages';
+import { 
+  NonauthGuardService as NonAuthGuard 
+} from './session/services/nonauth-guard.service';
 
 const routes: Routes = [
   {
-    path: 'register',
-    component: RegisterComponent
+    path: '',
+    children: [
+      {
+        path: '',
+        component: TimeTableComponent
+      },
+      {
+        path: 'register',
+        component: RegisterComponent,
+        canActivate: [NonAuthGuard]
+      },
+      {
+        path: 'login',
+        component: LoginComponent,
+        canActivate: [NonAuthGuard]
+      }
+    ]
   }
 ];
 

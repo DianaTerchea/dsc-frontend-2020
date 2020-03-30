@@ -24,8 +24,7 @@ export class SessionService {
   }
 
   public register(payload: IRegisterPayload): Observable<IRegisterResponse> {
-    // to be implemented
-    return null;
+    return this.http.post<IRegisterResponse>(this.url + '/register', payload);
   }
 
   public forgot(payload: IForgotPayload): Observable<any> {
@@ -34,6 +33,6 @@ export class SessionService {
   }
 
   public logout(): void {
-    // to be implemented
+    localStorage.removeItem('token');
   }
 }

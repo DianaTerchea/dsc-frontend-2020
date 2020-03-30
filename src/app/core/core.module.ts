@@ -5,7 +5,7 @@ import { HeaderComponent, FooterComponent } from './components';
   imports: [],
   declarations: [
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
   ],
   exports: [
     HeaderComponent,

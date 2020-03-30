@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
   Validators,
   AbstractControl
 } from '@angular/forms';
+import { SessionService } from '../../services/session.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-register',
@@ -12,9 +14,11 @@ import {
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent {
+  private subscription$: Subscription = new Subscription();
+
   registerForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private sessionService: SessionService) {
     this.registerForm = this.fb.group(
       {
         firstName: ['', [Validators.required]],
@@ -27,10 +31,22 @@ export class RegisterComponent {
     );
   }
 
+  ngOnInit(): void {
+    const sub = this.sessionService.register(null).subscribe((response) => {
+      console.log(response);
+    });
+
+    this.subscription$.add(sub);
+  }
+
   passwordValidator(control: AbstractControl) {
     return control.get('password').value ===
       control.get('confirmPassword').value
       ? null
       : { invalid: true };
+  }
+
+  ngOnDestroy() {
+    this.subscription$.unsubscribe();
   }
 }
