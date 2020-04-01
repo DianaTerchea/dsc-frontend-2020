@@ -15,7 +15,7 @@ export class NonauthGuardService implements CanActivate {
   }
 
   canActivate(): boolean {
-    if(this.isAuthenticated()) {
+    if (this.isAuthenticated()) {
       this.router.navigate(['']);
       return false;
     }

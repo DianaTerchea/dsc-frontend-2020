@@ -11,6 +11,8 @@ import { sessionEffects } from './store/effects';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { sessionReducer } from './store/reducers';
+import { PasswordRecoveryComponent } from './pages/password-recovery/password-recovery.component';
+import { MaterialModule } from '../material.module';
 
 @NgModule({
   declarations: [
@@ -18,17 +20,20 @@ import { sessionReducer } from './store/reducers';
     RegisterComponent,
     ForgotComponent,
     LogoutComponent,
+    PasswordRecoveryComponent,
   ],
   imports: [
     ReactiveFormsModule,
     FormsModule,
     CommonModule,
+    MaterialModule,
     EffectsModule.forFeature(sessionEffects),
     StoreModule.forFeature('session', sessionReducer)
   ],
   exports: [
     ForgotComponent,
-    LoginComponent
+    LoginComponent,
+    PasswordRecoveryComponent,
   ],
   providers: [
     ...sessionEffects
