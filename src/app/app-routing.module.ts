@@ -1,3 +1,4 @@
+import { PasswordRecoveryComponent } from './session/pages/password-recovery/password-recovery.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { TimeTableComponent } from './timetable/components';
@@ -22,8 +23,8 @@ const routes: Routes = [
       {
         path: 'login',
         component: LoginComponent,
-        canActivate: [NonAuthGuard]
-      }
+       /* canActivate: [NonAuthGuard] */
+      },
     ]
   }
 ];
