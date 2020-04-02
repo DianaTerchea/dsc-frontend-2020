@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { TimeTableComponent } from './timetable/components';
 import { RegisterComponent, LoginComponent } from './session/pages';
-import { 
-  NonauthGuardService as NonAuthGuard 
+import {
+  NonauthGuardService as NonAuthGuard
 } from './session/services/nonauth-guard.service';
 
 const routes: Routes = [
