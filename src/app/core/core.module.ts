@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { HeaderComponent, FooterComponent } from './components';
-import { WelcomePageComponent } from './pages/welcome-page/welcome-page.component';
+import { WelcomePageComponent } from './pages';
 import { MaterialModule } from '../material.module'
 
 @NgModule({
