@@ -13,6 +13,7 @@ import { StoreModule } from '@ngrx/store';
 import { sessionReducer } from './store/reducers';
 import { PasswordRecoveryComponent } from './pages/password-recovery/password-recovery.component';
 import { MaterialModule } from '../material.module';
+import { PasswordRecoveryTwoComponent } from './pages/password-recovery-two/password-recovery-two.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { MaterialModule } from '../material.module';
     ForgotComponent,
     LogoutComponent,
     PasswordRecoveryComponent,
+    PasswordRecoveryTwoComponent,
   ],
   imports: [
     ReactiveFormsModule,
@@ -34,6 +36,7 @@ import { MaterialModule } from '../material.module';
     ForgotComponent,
     LoginComponent,
     PasswordRecoveryComponent,
+    PasswordRecoveryTwoComponent,
   ],
   providers: [
     ...sessionEffects

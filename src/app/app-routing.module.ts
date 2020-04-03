@@ -5,6 +5,8 @@ import { RegisterComponent, LoginComponent } from './session/pages';
 import {
   NonauthGuardService as NonAuthGuard
 } from './session/services/nonauth-guard.service';
+import { PassThrough } from 'stream';
+import { PasswordRecoveryTwoComponent } from './session/pages/password-recovery-two/password-recovery-two.component';
 
 const routes: Routes = [
   {
@@ -23,6 +25,10 @@ const routes: Routes = [
         path: 'login',
         component: LoginComponent,
         canActivate: [NonAuthGuard]
+      },
+      {
+        path: 'forgotpassword2',
+        component: PasswordRecoveryTwoComponent,
       }
     ]
   }
