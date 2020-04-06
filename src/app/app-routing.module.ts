@@ -5,6 +5,7 @@ import { RegisterComponent, LoginComponent } from './session/pages';
 import {
   NonauthGuardService as NonAuthGuard
 } from './session/services/nonauth-guard.service';
+import { AuthGuardService } from './session/services/auth-guard.service';
 
 const routes: Routes = [
   {
@@ -12,7 +13,8 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: TimeTableComponent
+        component: TimeTableComponent,
+        canActivate:[AuthGuardService]
       },
       {
         path: 'register',
