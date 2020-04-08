@@ -15,7 +15,7 @@ const routes: Routes = [
       {
         path: '',
         component: TimeTableComponent,
-        canActivate:[AuthGuardService]
+        //canActivate: [AuthGuardService]
       },
       {
         path: 'register',
