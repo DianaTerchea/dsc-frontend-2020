@@ -26,6 +26,7 @@ import { AuthGuardService } from './services/auth-guard.service';
   imports: [
     ReactiveFormsModule,
     FormsModule,
+    PasswordRecoveryComponent,
     CommonModule,
     MaterialModule,
     EffectsModule.forFeature(sessionEffects),
