@@ -14,7 +14,6 @@ import { sessionReducer } from './store/reducers';
 import { PasswordRecoveryComponent } from './pages/password-recovery/password-recovery.component';
 import { MaterialModule } from '../material.module';
 import { AuthGuardService } from './services/auth-guard.service';
-import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -26,8 +25,6 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   imports: [
     ReactiveFormsModule,
-    HttpClientModule,
-    PasswordRecoveryComponent,
     FormsModule,
     CommonModule,
     MaterialModule,
