@@ -27,8 +27,8 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     ReactiveFormsModule,
     HttpClientModule,
-    FormsModule,
     PasswordRecoveryComponent,
+    FormsModule,
     CommonModule,
     MaterialModule,
     EffectsModule.forFeature(sessionEffects),
