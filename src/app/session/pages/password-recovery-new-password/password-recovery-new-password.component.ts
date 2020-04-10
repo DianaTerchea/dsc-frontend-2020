@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormBuilder, Validators, FormGroup, AbstractControl } from '@angular/forms';
+import { FormBuilder, FormGroup, AbstractControl } from '@angular/forms';
 
 @Component({
   selector: 'app-password-recovery-new-password',
@@ -8,32 +8,38 @@ import { FormControl, FormBuilder, Validators, FormGroup, AbstractControl } from
 })
 export class PasswordRecoveryNewPasswordComponent implements OnInit {
 
-  public password: FormGroup;
+  public passwordForm: FormGroup;
+
   constructor(private fb: FormBuilder) { }
 
-
   ngOnInit() {
-    this.password = this.fb.group({
-      password1: [''],
-      password2: ['', [this.matchValidator.bind(this)]]
+    this.passwordForm = this.fb.group({
+      password: [''],
+      confirmedPassword: ['', [this.matchValidator.bind(this)]]
     });
   }
 
   matchValidator(control: AbstractControl): { [key: string]: boolean } | null {
-    const fromValue = control.value;
-    if (this.password) {
-      const toValue = (this.password.get('password1') as FormControl).value;
-      if (fromValue && toValue && fromValue !== toValue) {
+    const confirmedPasswordValue = control.value;
+
+    if (this.passwordForm) {
+      const passwordValue = this.password.value;
+
+      if (confirmedPasswordValue && passwordValue && confirmedPasswordValue !== passwordValue) {
         return { 'fieldMatch': true };
       }
-      return null;
     }
+
+    return null;
   }
 
-  get confirmPasswordField() {
-    return this.password.get('password2');
+  get password() {
+    return this.passwordForm.get('password');
   }
 
+  get confirmedPassword() {
+    return this.passwordForm.get('confirmedPassword');
+  }
 
   submit() {
   }
