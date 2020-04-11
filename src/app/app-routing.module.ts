@@ -15,7 +15,7 @@ const routes: Routes = [
       {
         path: '',
         component: TimeTableComponent,
-        canActivate:[AuthGuardService]
+        canActivate: [AuthGuardService]
       },
       {
         path: 'register',
@@ -29,7 +29,7 @@ const routes: Routes = [
       },
       {
         path: 'forgotpassword2',
-        component: PasswordRecoveryTwoComponent,
+        /* canActivate: [NonAuthGuard] */
       }
     ]
   }
@@ -39,4 +39,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

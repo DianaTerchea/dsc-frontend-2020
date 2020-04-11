@@ -7,16 +7,17 @@ import {
   IRegisterPayload,
   IRegisterResponse,
   IForgotPayload,
+  IForgotResponse,
 } from '../models';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class SessionService {
   private url: string = environment.url;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   public login(payload: ILoginPayload): Observable<ILoginResponse> {
     // to be implemented
@@ -28,7 +29,7 @@ export class SessionService {
   }
 
   public forgot(payload: IForgotPayload): Observable<any> {
-    // to be implemented
+    return this.http.post<IForgotResponse>(this.url + '/forgot', payload);
     return null;
   }
 
