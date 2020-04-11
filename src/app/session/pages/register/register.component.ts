@@ -49,4 +49,25 @@ export class RegisterComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.subscription$.unsubscribe();
   }
+
+  registerForm_validation_messages = {
+    'firstName': [
+      { type: 'required', message: 'First Name is required' },
+    ],
+    'lastName': [
+      { type: 'required', message: 'Last Name is required' },
+    ],
+    'email': [
+      { type: 'required', message: 'Email is required' },
+      { type: 'email', message: 'Enter a valid email' }
+    ],
+    'confirmPassword': [
+      { type: 'required', message: 'Confirm password is required' },
+      { type: 'passwordValidator', message: 'Password mismatch' }
+    ],
+    'password': [
+      { type: 'required', message: 'Password is required' },
+      { type: 'minlength', message: 'Please enter a password that is least 6 characters long' },
+    ],
+    }
 }

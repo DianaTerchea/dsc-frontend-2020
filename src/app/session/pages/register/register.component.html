@@ -1,23 +1,70 @@
-<form [formGroup]="registerForm">
-  <label>
-    <span>First Name</span>
-    <input type="text" formControlName="firstName" />
-  </label>
-  <label>
-    <span>Last Name</span>
-    <input type="text" formControlName="lastName" />
-  </label>
-  <label>
-    <span>Email</span>
-    <input type="email" formControlName="email" />
-  </label>
-  <label>
-    <span>Password</span>
-    <input type="password" formControlName="password" />
-  </label>
-  <label>
-    <span>Confirm Password</span>
-    <input type="password" formControlName="confirmPassword" />
-  </label>
-  <button type="submit" [disabled]="registerForm.invalid">Submit</button>
-</form>
+<div class="signUp">
+  <form [formGroup]="registerForm">
+    <div class="headerSignForm">
+      <div class='header-back'>
+        <a href="#" id="previousBtn">&#8249;</a>
+      </div>
+      <div class='header-title'>
+      <p id="signUpTitle">Sign Up</p>
+      </div>
+    </div>
+    <div class="bodySignForm">
+    <br />
+    <div style="display:flex">
+    <div>
+      <label for="firstName">First Name</label>
+      <mat-form-field>    
+        <input type="text" class="input-field" matInput placeholder="First Name" formControlName="firstName" required />
+        <mat-error *ngFor="let validation of registerForm_validation_messages.fistName">
+          <mat-error class="error-message" *ngIf="registerForm.get('firstName').hasError(validation.type) && (registerForm.get('firstName').dirty || registerForm.get('firstName').touched)">{{validation.message}}</mat-error>
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div>
+      <label for="lastName">Last Name</label>
+      <mat-form-field>
+        <input type="text" class="input-field" matInput placeholder="Last Name" formControlName="lastName" required />
+        <mat-error *ngFor="let validation of registerForm_validation_messages.lastName">
+          <mat-error class="error-message" *ngIf="registerForm.get('lastName').hasError(validation.type) && (registerForm.get('lastName').dirty || registerForm.get('lastName').touched)">{{validation.message}}</mat-error>
+        </mat-error>
+      </mat-form-field>
+      </div>
+    </div>
+    <div style="float: center;">
+      <label for="email">Email</label>
+      <br />
+      <mat-form-field>
+        <input type="text" class="input-field" matInput placeholder="e.g: studentuaic@mail.com" formControlName="email" required />
+        <mat-error *ngFor="let validation of registerForm_validation_messages.email">
+          <mat-error class="error-message" *ngIf="registerForm.get('email').hasError(validation.type) && (registerForm.get('email').dirty || registerForm.get('email').touched)">{{validation.message}}</mat-error>
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div>
+      <label for="password">Password</label> 
+      <br />
+      <mat-form-field>
+        <input type="password" class="input-field" matInput placeholder="***********" formControlName="password" required minLength(6)/>
+        <mat-error *ngFor="let validation of registerForm_validation_messages.password">
+          <mat-error class="error-message" *ngIf="registerForm.get('password').hasError(validation.type) && (registerForm.get('password').dirty || registerForm.get('password').touched)">{{validation.message}}</mat-error>
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div>
+      <label for="confirmPassword">Repeat Password</label>
+      <br />
+      <mat-form-field>
+        <input type="password" class="input-field" matInput placeholder="***********" formControlName="confirmPassword" required />
+        <mat-error *ngFor="let validation of registerForm_validation_messages.confirmPassword">
+          <mat-error class="error-message" *ngIf="registerForm.get('confirmPassword').hasError(validation.type) && (registerForm.get('confirmPassword').dirty || registerForm.get('confirmPassword').touched)">{{validation.message}}</mat-error>
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div style="text-align: center;">
+      <button mat-raised-button type="submit" [disabled]="registerForm.invalid" class="createAccountBtn">Create account</button>
+    </div>
+    <br />
+    <p id="grey">By signing up, you agree to our <a href="#">Terms and Conditions</a> & <a href="#">Privacy Policy</a>.</p><br /><br /><br /><br />
+  </div>
+  </form>
+</div>

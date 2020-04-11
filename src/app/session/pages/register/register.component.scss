@@ -1,10 +1,90 @@
-form {
+.signUp{
+  color: black;
+  background: center;
+  background-color: gray;
+  width: 100%;
+  min-height: 100vh; 
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
+  align-items: center;    
+}
 
-  span {
-    margin: 2rem;
-  }
+.headerSignForm {
+  box-shadow: 0px 10px 10px -15px #111;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  padding: 15px;
+}
+
+.header-back {
+  width: auto;
+}
+
+.header-title {
+  width: calc(100% - 50px);
+}
+
+.bodySignForm{
+  display: inline;
+}
+
+#grey {
+  color: #C2C2C2;
+  text-decoration: none;
+  text-align: center;
+}
+
+#previousBtn {
+  color: #15D0A1;
+  text-decoration: none;
+  display: inline-flex;
+  font-size:48px;
+}
+
+#signUpTitle {
+  font-size: 20px;
+  text-align: center;
+}
+
+form {
+  background-color: white;
+  position: absolute;
+  padding: 5px 15px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.input-field { 
+  color: black;
+  padding: 3px 10px;
+  margin: 30px 0 20px 0;
+  border-right: none;
+  border-top: none;
+  border-left: none;
+  outline: none;
+  border-bottom: 1px solid #C2C2C2; 
+  width: 90%;
+}
+
+.input-field:hover {
+  border-color: 1px solid #BDE285;
+}
+
+.createAccountBtn {
+  color: white;
+  width: 85%;
+  padding: 20px 20px 20px 20px;
+  background-color: #BDE285;
+  border-radius: 5px;
+  border-color: gray;
+  border-right: none;
+  border-top: none;
+  border-left: none;
+  border-bottom: none; 
+}
+
+.error-message {
+font-size: 12px;
 }
