@@ -14,6 +14,7 @@ import { sessionReducer } from './store/reducers';
 import { PasswordRecoveryComponent } from './pages/password-recovery/password-recovery.component';
 import { MaterialModule } from '../material.module';
 import { AuthGuardService } from './services/auth-guard.service';
+import { PasswordRecoveryNewPasswordComponent } from './pages/password-recovery-new-password/password-recovery-new-password.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { AuthGuardService } from './services/auth-guard.service';
     ForgotComponent,
     LogoutComponent,
     PasswordRecoveryComponent,
+    PasswordRecoveryNewPasswordComponent
   ],
   imports: [
     ReactiveFormsModule,
@@ -34,11 +36,11 @@ import { AuthGuardService } from './services/auth-guard.service';
   exports: [
     ForgotComponent,
     LoginComponent,
-    PasswordRecoveryComponent,
+    PasswordRecoveryComponent
   ],
   providers: [
     ...sessionEffects,
     AuthGuardService,
   ]
 })
-export class SessionModule {}
+export class SessionModule { }
