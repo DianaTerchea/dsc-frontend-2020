@@ -13,6 +13,7 @@ import { StoreModule } from '@ngrx/store';
 import { sessionReducer } from './store/reducers';
 import { PasswordRecoveryComponent } from './pages/password-recovery/password-recovery.component';
 import { MaterialModule } from '../material.module';
+import { PasswordRecoveryTwoComponent } from './pages/password-recovery-two/password-recovery-two.component';
 import { AuthGuardService } from './services/auth-guard.service';
 import { PasswordRecoveryNewPasswordComponent } from './pages/password-recovery-new-password/password-recovery-new-password.component';
 
@@ -23,6 +24,7 @@ import { PasswordRecoveryNewPasswordComponent } from './pages/password-recovery-
     ForgotComponent,
     LogoutComponent,
     PasswordRecoveryComponent,
+    PasswordRecoveryTwoComponent,
     PasswordRecoveryNewPasswordComponent
   ],
   imports: [
@@ -36,7 +38,8 @@ import { PasswordRecoveryNewPasswordComponent } from './pages/password-recovery-
   exports: [
     ForgotComponent,
     LoginComponent,
-    PasswordRecoveryComponent
+    PasswordRecoveryComponent,
+    PasswordRecoveryTwoComponent,
   ],
   providers: [
     ...sessionEffects,

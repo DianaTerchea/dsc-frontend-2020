@@ -1,4 +1,3 @@
-import { PasswordRecoveryComponent } from './session/pages/password-recovery/password-recovery.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { TimeTableComponent } from './timetable/components';
@@ -6,6 +5,7 @@ import { RegisterComponent, LoginComponent } from './session/pages';
 import {
   NonauthGuardService as NonAuthGuard
 } from './session/services/nonauth-guard.service';
+import { PasswordRecoveryTwoComponent } from './session/pages/password-recovery-two/password-recovery-two.component';
 import { AuthGuardService } from './session/services/auth-guard.service';
 
 const routes: Routes = [
@@ -25,6 +25,10 @@ const routes: Routes = [
       {
         path: 'login',
         component: LoginComponent,
+        canActivate: [NonAuthGuard]
+      },
+      {
+        path: 'forgotpassword2',
         /* canActivate: [NonAuthGuard] */
       }
     ]
