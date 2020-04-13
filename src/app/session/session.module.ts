@@ -16,6 +16,7 @@ import { MaterialModule } from '../material.module';
 import { PasswordRecoveryTwoComponent } from './pages/password-recovery-two/password-recovery-two.component';
 import { AuthGuardService } from './services/auth-guard.service';
 import { PasswordRecoveryNewPasswordComponent } from './pages/password-recovery-new-password/password-recovery-new-password.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -31,9 +32,10 @@ import { PasswordRecoveryNewPasswordComponent } from './pages/password-recovery-
     ReactiveFormsModule,
     FormsModule,
     CommonModule,
+    RouterModule,
     MaterialModule,
     EffectsModule.forFeature(sessionEffects),
-    StoreModule.forFeature('session', sessionReducer)
+    StoreModule.forFeature('session', sessionReducer),
   ],
   exports: [
     ForgotComponent,
