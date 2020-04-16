@@ -20,10 +20,10 @@ export class RegisterComponent implements OnInit, OnDestroy {
 
   errorMessages = {
     'firstName': [
-      { type: 'required', message: 'First Name is required' },
+      { type: 'required', message: 'First Name is required' }
     ],
     'lastName': [
-      { type: 'required', message: 'Last Name is required' },
+      { type: 'required', message: 'Last Name is required' }
     ],
     'email': [
       { type: 'required', message: 'Email is required' },
