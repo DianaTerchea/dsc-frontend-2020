@@ -16,7 +16,7 @@
     </mat-form-field>
 
     <mat-form-field>
-    <input type="email" formControlName="email" />
+    <input type="email" class="input-field" matInput placeholder="Email" formControlName="email" required/>
     <mat-error *ngFor="let validation of errorMessages.email">
       <mat-error class="error-message" *ngIf="registerForm.get('email').hasError(validation.type)">{{validation}}</mat-error>
     </mat-error>
