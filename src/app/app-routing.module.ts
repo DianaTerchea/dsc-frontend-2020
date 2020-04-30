@@ -1,30 +1,61 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { TimeTableComponent } from './timetable/components';
-import { RegisterComponent, LoginComponent } from './session/pages';
 import {
-  NonauthGuardService as NonAuthGuard
-} from './session/services/nonauth-guard.service';
+  RegisterComponent,
+  LoginComponent,
+  PasswordRecoveryComponent,
+  PasswordRecoveryTwoComponent,
+  PasswordRecoveryNewPasswordComponent
+} from './session/pages';
+import { NonAuthGuardService } from './session/services/nonauth-guard.service';
+import { AuthGuardService } from './session/services/auth-guard.service';
+import { WelcomePageComponent } from './core/pages';
 
 const routes: Routes = [
   {
     path: '',
+    canActivateChild: [AuthGuardService],
     children: [
       {
         path: '',
-        component: TimeTableComponent
+        component: TimeTableComponent,
+      }
+    ]
+  },
+  {
+    path: 'auth',
+    canActivateChild: [NonAuthGuardService],
+    children: [
+      {
+        path: '',
+        component: WelcomePageComponent,
       },
       {
         path: 'register',
         component: RegisterComponent,
-        canActivate: [NonAuthGuard]
       },
       {
         path: 'login',
         component: LoginComponent,
-        canActivate: [NonAuthGuard]
+      },
+      {
+        path: 'forgot',
+        component: PasswordRecoveryComponent
+      },
+      {
+        path: 'check-code',
+        component: PasswordRecoveryTwoComponent
+      },
+      {
+        path: 'new-password',
+        component: PasswordRecoveryNewPasswordComponent
       }
     ]
+  },
+  {
+    path: '**',
+    redirectTo: '' // TODO make a 404 page
   }
 ];
 
@@ -32,4 +63,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

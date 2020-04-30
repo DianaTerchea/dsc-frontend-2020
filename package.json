@@ -6,7 +6,7 @@
     "npm": "6.14.4"
   },
   "scripts": {
-    "ng": "ng",
+    "ng": "node server.js",
     "start": "node server.js",
     "build": "ng build",
     "test": "ng test",
@@ -26,7 +26,6 @@
     "@angular/platform-browser": "~9.0.2",
     "@angular/platform-browser-dynamic": "~9.0.2",
     "@angular/router": "~9.0.2",
-    "@auth0/angular-jwt": "^4.0.0",
     "@ngrx/effects": "^9.0.0",
     "@ngrx/store": "^9.0.0",
     "@ngrx/store-devtools": "^9.0.0",

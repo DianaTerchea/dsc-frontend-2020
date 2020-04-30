@@ -4,13 +4,13 @@ import { Router, CanActivateChild } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
-export class NonAuthGuardService implements CanActivateChild {
+export class AuthGuardService implements CanActivateChild {
   constructor(public router: Router) {}
 
-  public isNotAuthenticated(): boolean {
+  public isAuthenticated(): boolean {
     const token = localStorage.getItem('token');
-    if (token) {
-      this.router.navigate(['']);
+    if (!token) {
+      this.router.navigate(['/auth']);
       return false;
     }
 
@@ -18,6 +18,6 @@ export class NonAuthGuardService implements CanActivateChild {
   }
 
   canActivateChild(): boolean {
-    return this.isNotAuthenticated();
+    return this.isAuthenticated();
   }
 }
