@@ -1,4 +1,4 @@
-export class Course {
+/*export class Course {
 
   startTime: Date;
   endTime: Date;
@@ -10,5 +10,25 @@ export class Course {
     this.endTime = endTime;
     this.title = title;
     this.room = room;
+  }
+}*/
+
+export class Course {
+  startTime: Date;
+  endTime: Date;
+  group: string;
+  title: string;
+  type: string;
+  teacher: string;
+  room: string;
+
+  constructor(start: Date, end: Date, group: string, subject: string, type: string, teacher: string, room: string){
+   this.startTime = start;
+   this.endTime = end;
+   this.group = group;
+   this.title = subject;
+   this.type = type;
+   this.teacher = teacher;
+   this.room = room;
   }
 }
