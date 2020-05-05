@@ -22,13 +22,22 @@ export class Course {
   teacher: string;
   room: string;
 
-  constructor(start: Date, end: Date, group: string, subject: string, type: string, teacher: string, room: string){
-   this.startTime = start;
-   this.endTime = end;
+  constructor(subject: string) {
+    this.title = subject;
+  }
+
+  public setTime(start: Date, end: Date) {
+    this.startTime = start;
+    this.endTime = end;
+  }
+
+  public setTypeAndGroup( group: string, type: string, ) {
    this.group = group;
-   this.title = subject;
    this.type = type;
-   this.teacher = teacher;
-   this.room = room;
+  }
+
+  public setTeacherAndRoom(teacher: string, room: string){
+    this.teacher = teacher;
+    this.room = room;
   }
 }

@@ -18,25 +18,37 @@ export class TimeTableService {
     this.message$.next(msg);
   }
 
-  private extractData(res: Response) {
+  private extractData(res: Response, selectedDay) {
     const courses: Course[] = [];
+    const days = {
+      Monday: 'Luni',
+      Tuesday: 'Marti',
+      Wednesday: 'Miercuri',
+      Thursday: 'Joi',
+      Friday: 'Vineri',
+      Saturday: 'Luni',
+      Sunday: 'Luni'
+    };
+    /*Un dictionar deoarece zilele in front erau in engleza si cele din back in romana, pt Sunday si
+    Saturday am pus sa imi arate orarul tot pentru ziua de luni */
     let i;
-    const body = res["schedule"]["Luni"];
+    const body = res["schedule"][days[selectedDay]];
     for ( i = 0; i < body.length; i++) {
-
-      // tslint:disable-next-line: max-line-length
-      const course = new Course(body[i]['De la'], body[i]['Pana la'], body[i]['Grupa'], body[i]['Disciplina'], body[i]['Tip'], body[i]['Profesor'], body[i]['Sala']);
+      const course = new Course( body[i]['Disciplina']);
+      course.setTime(body[i]['De la'], body[i]['Pana la']);
+      course.setTypeAndGroup( body[i]['Grupa'], body[i]['Tip']);
+      course.setTeacherAndRoom( body[i]['Profesor'], body[i]['Sala']);
       courses[i] = course;
   }
     return courses;
   }
-  public getTimeTableData(): Observable<Course[]> {
+  public getTimeTableData(selectedDay: string): Observable<Course[]> {
    const headers = new HttpHeaders({
       Authorization: `Bearer ${this.token}`
     });
    const urlValue = `${this.api}/year/1/semester/1`;
    return this.http.get<any>(urlValue, {headers}).pipe(
-     map(res =>{this.extractData(res);})
+     map(data => this.extractData(data, selectedDay))
    );
   }
 }

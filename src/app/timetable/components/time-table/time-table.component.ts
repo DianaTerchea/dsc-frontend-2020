@@ -33,12 +33,12 @@ export class TimeTableComponent implements OnInit {
     this.getData();
   }
    public getData() {
-     console.log('Din componenta');
-     this.getService.getTimeTableData()
+     this.getService.getTimeTableData(this.selectedDay)
      .subscribe((data: Course[]) => this.courses = data);
    }
 
    getChildData(data){
     this.selectedDay = data;
+    this.getData();
    }
 }
