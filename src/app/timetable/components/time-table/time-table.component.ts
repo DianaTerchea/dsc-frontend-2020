@@ -37,7 +37,7 @@ export class TimeTableComponent implements OnInit {
      .subscribe((data: Course[]) => this.courses = data);
    }
 
-   getChildData(data){
+   getChildData(data) {
     this.selectedDay = data;
     this.getData();
    }

@@ -8,6 +8,7 @@ import { TimeTableService } from '../../services/time-table.service';
 })
 export class WeekDaysComponent {
   @Output() selectedDay: EventEmitter<string> = new EventEmitter();
+
   constructor(private _timetableService: TimeTableService) {}
   updateDay(day) {
     if (document.getElementsByClassName('picked-day').length)
@@ -16,11 +17,11 @@ export class WeekDaysComponent {
         .classList.remove('picked-day');
     document
       .getElementById(day.substring(0, 3).toLowerCase())
-      .classList.add('picked-day');
-      this.sendValue(day);
+       .classList.add('picked-day');
     this._timetableService.sendMessage(day);
+    this.sendValue(day);
   }
-  sendValue(day: string){
+  sendValue(day: string) {
     this.selectedDay.emit(day);
   }
 }

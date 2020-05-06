@@ -15,7 +15,7 @@ import { WelcomePageComponent } from './core/pages';
 const routes: Routes = [
   {
     path: '',
-   // canActivateChild: [AuthGuardService],
+    canActivateChild: [AuthGuardService],
     children: [
       {
         path: '',

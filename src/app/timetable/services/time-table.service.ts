@@ -10,8 +10,7 @@ import { map } from 'rxjs/operators';
 export class TimeTableService {
   public message$ = new Subject<string>();
   private readonly api = 'https://dsc-schedule.herokuapp.com/schedule';
-  // tslint:disable-next-line: max-line-length
-  private readonly token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyOmlkIjoiNWViMDRkMGU5NGVlNWMwMDE3MDczMDAyIiwiaWF0IjoxNTg4NjEyNDM2LCJleHAiOjE1ODkyMTcyMzZ9.gbsdjvcBlx5xepgMmS25S1mjQQsXbh3tHMuJRP0l6UQ';
+  private readonly token = localStorage.getItem('token');
   constructor(private http: HttpClient) {
   }
   sendMessage(msg: string) {
@@ -32,7 +31,7 @@ export class TimeTableService {
     /*Un dictionar deoarece zilele in front erau in engleza si cele din back in romana, pt Sunday si
     Saturday am pus sa imi arate orarul tot pentru ziua de luni */
     let i;
-    const body = res["schedule"][days[selectedDay]];
+    const body = res['schedule'][days[selectedDay]];
     for ( i = 0; i < body.length; i++) {
       const course = new Course( body[i]['Disciplina']);
       course.setTime(body[i]['De la'], body[i]['Pana la']);
@@ -46,6 +45,7 @@ export class TimeTableService {
    const headers = new HttpHeaders({
       Authorization: `Bearer ${this.token}`
     });
+    /* */
    const urlValue = `${this.api}/year/1/semester/1`;
    return this.http.get<any>(urlValue, {headers}).pipe(
      map(data => this.extractData(data, selectedDay))
